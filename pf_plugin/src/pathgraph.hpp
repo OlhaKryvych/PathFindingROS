@@ -69,23 +69,71 @@ signals:
 public slots:
     void setTopic( const QString& topic );
 
+    /**
+     * @brief targetReached
+     * @details This function is executed when
+     * target robot position reached
+     */
     void targetReached();
 
+    /**
+     * @brief stopMoving
+     *
+     * @details This function stops current moving process
+     */
     void stopMoving();
 
 protected slots:
+    /**
+     * @brief updateTopic
+     *
+     * @details Updates current map`s topic to a new one
+     */
     void updateTopic();
 
+    /**
+     * @brief openMapFile
+     *
+     * @details open and read new map file
+     */
     void openMapFile();
 
+    /**
+     * @brief updateSystem
+     *
+     * @details Totol system update (graph update positions update)
+     */
     void updateSystem();
 
+    /**
+     * @brief nextPath
+     *
+     * @details This function start
+     * finding shortest path to a
+     * next position from current
+     * robot position
+     */
     void nextPath();
 
+    /**
+     * @brief placeRobot
+     *
+     * @details Places robot to a default (0,0,0) position
+     */
     void placeRobot();
 
+    /**
+     * @brief addTechPosToList
+     *
+     * @details Addes current selected techposition to a visit list
+     */
     void addTechPosToList();
 
+    /**
+     * @brief moveToNextPosition
+     *
+     * @details Start moving to next position in visit list
+     */
     void moveToNextPosition();
 private:
     QLabel* map_topic_editor_;
@@ -105,24 +153,79 @@ private:
 
     PosMover* mover;
 
+    /**
+     * @brief loadDataFromMapFile
+     * @param path a full path to a map file
+     *
+     * @details Loads data (map image and map parameters) from map file
+     */
     void loadDataFromMapFile(const QString& path);
 
+    /**
+     * @brief createGraph
+     *
+     * @details Generate a road graph
+     */
     void createGraph();
 
+    /**
+     * @brief resetGraph
+     *
+     * @details Deletes all nodes from current road graph (clearing it)
+     */
     void resetGraph();
 
+    /**
+     * @brief clearNodesAndGraph
+     *
+     * @details Deletes all nodes and road graph
+     */
     void clearNodesAndGraph();
 
+    /**
+     * @brief generateNodes
+     *
+     * @details This function create a set of nodes for current map
+     */
     void generateNodes();
 
+    /**
+     * @brief generateGraph
+     *
+     * @details This function connects all Nodes in a single road graph
+     */
     void generateGraph();
 
+    /**
+     * @brief resetRobotPosition
+     * @param x
+     * @param y
+     *
+     * @details Set robot position to (x, y, 0)
+     */
     void resetRobotPosition(float x = 0, float y = 0);
 
+    /**
+     * @brief clearListToVisit
+     *
+     * @details This function clear all visit list by removing all techposes from it
+     */
     void clearListToVisit();
 
+    /**
+     * @brief removePointFromList
+     * @param row
+     * @param coll
+     *
+     * @details Removes selected techpose from visit list
+     */
     void removePointFromList(int row, int coll);
 
+    /**
+     * @brief getClosestNode
+     * @param pos
+     * @return A closes node to a given position
+     */
     CNode* getClosestNode(Ogre::Vector3 pos);
 
     // map parameters
@@ -151,9 +254,7 @@ private:
     const QColor wayColor = "#ffffff";
     const QColor outColor = "#cdcdcd";
     const QColor nodeColor = "#0000FF";
-
     const QColor robotColor = "#FF0000";
-
     const QColor graphNode = "#00FF00";
     const QColor graphLine = "#00FF00";
 
