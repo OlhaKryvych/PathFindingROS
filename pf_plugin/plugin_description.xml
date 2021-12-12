@@ -1,0 +1,17 @@
+<library path="lib/libpf_plugin">
+  <class name="pf_plugin/TechPosition"
+         type="pf_plugin::TechPosition"
+         base_class_type="rviz::Tool">
+    <description>
+      Utill for planting technological positions
+    </description>
+  </class>
+
+  <class name="pf_plugin/PathGraph"
+         type="pf_plugin::PathGraph"
+         base_class_type="rviz::Panel">
+    <description>
+      Util for building navigation (path) graph
+    </description>
+  </class>
+</library>

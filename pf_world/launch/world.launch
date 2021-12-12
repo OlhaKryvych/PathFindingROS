@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find pf_world)/worlds/olha_world.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/> <!-- remove later -->
+  </include>
+    
+  <include file="$(find pf_description)/launch/robot.launch"/>
+  <include file="$(find pf_control)/launch/control.launch"/>
+</launch>
