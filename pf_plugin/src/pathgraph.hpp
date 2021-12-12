@@ -195,7 +195,6 @@ private:
 
     void moveToPoint(Ogre::Vector3 start, Ogre::Vector3 end);
 
-
     // Path to move on and functions
 
     void moveTo(Ogre::Vector3 pos, Ogre::Vector3 next_pos = {0.0, 0.0, 0.0});

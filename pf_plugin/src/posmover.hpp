@@ -20,10 +20,27 @@ public:
     ~PosMover() {}
 
 Q_SIGNALS:
+    /**
+     * @brief positionReached
+     * @details Emits when target postion was reached by robot
+     */
     void positionReached();
+
+    /**
+     * @brief positionDoesNotReached
+     * @details Emits when target position can not be reached by robot
+     */
     void positionDoesNotReached();
 
 public Q_SLOTS:
+    /**
+     * @brief moveToPosition
+     * @param raw_rPos current robot position
+     * @param raw_pos target position
+     * @param raw_nPos next target position (needed for corect robot aligment)
+     *
+     * @details Start moving to target position
+     */
     void moveToPosition(QVector<double> raw_rPos, QVector<double> raw_pos, QVector<double> raw_nPos);
 };
 

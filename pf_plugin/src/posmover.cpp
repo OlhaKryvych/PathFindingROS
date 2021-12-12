@@ -37,6 +37,7 @@ void PosMover::moveToPosition(QVector<double> raw_robotPosAMCL, QVector<double> 
     rPos.y = robotPosAMCL.pose.pose.position.y;
     rPos.z = robotPosAMCL.pose.pose.position.z;
 
+    // Calculation a differance vector between target goal and current robot position
     auto _diff = pos - rPos;
 
     // QMessageBox mb;
